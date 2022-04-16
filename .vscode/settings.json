@@ -11,5 +11,7 @@
     "python.testing.pytestArgs": [
         "."
     ],
-    "jupyter.jupyterServerType": "remote"
+    "jupyter.jupyterServerType": "remote",
+    "editor.fontFamily": "D2Coding, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontSize": 14
 }

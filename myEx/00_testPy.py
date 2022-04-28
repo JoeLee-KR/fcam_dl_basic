@@ -1,8 +1,14 @@
-import numpy as np
-print('Sol',np.__version__)
+# bellow for python3.7,
+# not need at python3.8
+import os
+os.environ['KMP_DUPLICATE_LIB_OK'] = 'True'
 
-import torch as tc
-print('Sol',tc.__version__)
+import numpy as np
+print('numpy np',np.__version__)
 
 import scipy as sp
-print('Sol',sp.__version__)
+print('scipy sp',sp.__version__)
+
+import torch as tc
+print('torch tc',tc.__version__)
+

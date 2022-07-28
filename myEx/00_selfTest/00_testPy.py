@@ -1,7 +1,7 @@
 # bellow for python3.7,
-# not need at python3.8
-# import os
-# os.environ['KMP_DUPLICATE_LIB_OK'] = 'True'
+# not need over python3.8
+import os
+os.environ['KMP_DUPLICATE_LIB_OK'] = 'True'
 
 import numpy as np
 print('>numpy np:',np.__version__)

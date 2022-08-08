@@ -16,3 +16,4 @@ print(">pyTorch tp:", tp.__version__)
 import tensorflow as tf
 print(">Tensorflow:", tf.__version__)
 
+print("Test End. by PY")

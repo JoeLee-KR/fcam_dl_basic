@@ -1,0 +1,5 @@
+git pull git@gitjoe:joelee-kr/fcam_dl_basic.git 
+#git pull -f  git@gitjoe:joelee-kr/fcam_dl_basic.git 
+#git pull -f  git@gitjoe:joelee-kr/fcam_dl_basic.git master
+#
+#git -f -u

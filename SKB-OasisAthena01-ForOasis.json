@@ -1,0 +1,148 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "OasisAthena01S3CommonPolicyProxyConsole",
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListAllMyBuckets",
+                "s3:GetBucketLocation",
+                "s3:GetBucketVersioning"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "IpAddress": {
+                    "aws:SourceIp": [
+                        "3.38.37.98",
+                        "43.200.64.11",
+                        "52.78.28.165",
+                        "13.209.170.155",
+                        "3.37.172.123"
+                    ]
+                }
+            }
+        },
+    {
+             "Sid": "OasisAthena01S3UserBucketPolicyProxyConsole",
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::skb-oasis-user",
+                "arn:aws:s3:::skb-oasis-user/*"
+            ],
+            "Condition": {
+                "IpAddress": {
+                    "aws:SourceIp": [
+                        "3.38.37.98",
+                        "43.200.64.11",
+                        "52.78.28.165",
+                        "13.209.170.155",
+                        "3.37.172.123"
+                    ]
+                }
+            }
+        },
+        {
+            "Sid": "OasisAthena01S3UserGeneralBucketProxyConsole",
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject",
+                "s3:PutObject",
+                "s3:DeleteObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::skb-oasis-user/*"
+            ],
+            "Condition": {
+                "IpAddress": {
+                    "aws:SourceIp": [
+                        "3.38.37.98",
+                        "43.200.64.11",
+                        "52.78.28.165",
+                        "13.209.170.155",
+                        "3.37.172.123"
+                    ]
+                }
+            }
+        },
+        {
+            "Sid": "OasisAthena01GeneralBucketAthena",
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject",
+                "s3:PutObject",
+                "s3:DeleteObject",
+                "s3:GetBucketLocation",
+                "s3:ListBucket",
+                "s3:ListBucketMultipartUploads",
+                "s3:ListMultipartUploadParts",
+                "s3:AbortMultipartUpload"
+            ],
+            "Resource": [
+                "arn:aws:s3:::skb-oasis-user",
+                "arn:aws:s3:::skb-oasis-user/*"
+            ],
+            "Condition": {
+                "ForAnyValue:StringEquals": {
+                    "aws:CalledVia": [
+                        "athena.amazonaws.com"
+                    ]
+                }
+            }
+        },
+        {
+            "Sid": "OasisAthena01Lakeformation",
+            "Effect": "Allow",
+            "Action": "lakeformation:GetDataAccess",
+            "Resource": "*"
+        },
+        {
+            "Sid": "OasisAthena01GlueDataCatalog",
+            "Effect": "Allow",
+            "Action": [
+                "glue:GetDatabases",
+                "glue:GetDatabase",
+                "glue:GetTables",
+                "glue:GetTable",
+                "glue:GetPartitions",
+                "glue:GetPartition",
+                "glue:CreateTable",
+                "glue:UpdateTable",
+                "glue:DeleteTable",
+                "glue:CreatePartition",
+                "glue:UpdatePartition",
+                "glue:DeletePartition",
+                "glue:BatchCreatePartition",
+                "glue:BatchUpdatePartition",
+                "glue:BatchDeletePartition"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "OasisAthena01Athena",
+            "Effect": "Allow",
+            "Action": [
+                "athena:GetWorkGroup",
+                "athena:StartQueryExecution",
+                "athena:StopQueryExecution",
+                "athena:GetQueryExecution",
+                "athena:ListQueryExecutions",
+                "athena:GetQueryResults",
+                "athena:GetQueryResultsStream",
+                "athena:CreatePreparedStatement",
+                "athena:UpdatePreparedStatement",
+                "athena:GetPreparedStatement",
+                "athena:DeletePreparedStatement",
+                "athena:ListPreparedStatements"
+            ],
+            "Resource": "arn:aws:athena:ap-northeast-2:695473834042:workgroup/*",
+            "Condition": {
+                "StringEquals": {
+                    "aws:SourceVpc": "vpc-0570201605337e3c0"
+                }
+            }
+        }
+     ]
+}
